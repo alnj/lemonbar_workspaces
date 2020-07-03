@@ -77,6 +77,7 @@ make_ws_list() {
 	set -f
 	set -- $ws_names
 
+	# Loop through the workspace names
 	i=0; for ws; do
 		# Trim quotes and commas
 		formatted_ws_name=${ws%,}
@@ -193,4 +194,3 @@ get_busy_wspaces() {
 
 
 main
-
