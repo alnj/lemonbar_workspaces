@@ -79,7 +79,7 @@ make_ws_list() {
 
 	# Loop through the workspace names
 	i=0; for ws; do
-		# Trim quotes and commas
+		# Trim leftover quotes and commas
 		formatted_ws_name=${ws%,}
 		formatted_ws_name=${formatted_ws_name%\"}
 		formatted_ws_name=${formatted_ws_name#\"}
@@ -87,7 +87,6 @@ make_ws_list() {
 		# Print separator before all workspaces
 		# except the first.
 		test "$i" != 0 && printf "%s" "$separator"
-
 
 		# Print on-click lemonbar formatting.
 		printf "%s" "%{A1:xdotool set_desktop $i:}"
