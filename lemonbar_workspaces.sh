@@ -34,12 +34,6 @@ main() {
 	                 _NET_DESKTOP_NAMES \
                          _NET_CLIENT_LIST_STACKING |
 		while IFS="[ =]" read -r atom value; do
-
-			case "$atom" in
-				*CURRENT*) active_ws="$value" ;;
-				*NAMES*)   ws_names="$value";;
-			esac
-
 			# Every time one of these atoms
 			# changes, print a new workspace list.
 			case "$atom" in
