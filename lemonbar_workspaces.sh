@@ -39,7 +39,7 @@ main() {
 			case "$atom" in
 				*CLIENT*)
 					# Only update the workspace list
-					# if busy formatting has been set
+					# if busy formatting has been set.
 					if [ -n "$busy_left" ] ||
 					   [ -n "$busy_right" ]; then
 						make_ws_list windows_changed
@@ -77,9 +77,9 @@ make_ws_list() {
 	set -f
 	set -- $ws_names
 
-	# Loop through the workspace names
+	# Loop through the workspace names.
 	i=0; for ws; do
-		# Trim leftover quotes and commas
+		# Trim leftover quotes and commas.
 		formatted_ws_name=${ws%,}
 		formatted_ws_name=${formatted_ws_name%\"}
 		formatted_ws_name=${formatted_ws_name#\"}
@@ -123,13 +123,15 @@ make_ws_list() {
 
 			# If the workspace was not found to be busy,
 			# just print inactive formatting
+			# If formatting for busy workspaces is unset
+			# then this will always print inactive formatting.
 			if [ "$i" != "$busy_ws" ]; then
 				printf "%s" "$inactive_left$formatted_ws_name$inactive_right"
 			fi
 
 			# Reset positional parameters to workspace names
 			# so that the next iteration of `for ws` works
-			# correctly
+			# correctly.
 			set -- $ws_names
 		fi
 
@@ -154,7 +156,7 @@ get_busy_wspaces() {
 
 	# Set the window list as positional
 	# arguments as a ghetto POSIX array
-	# so we can loop through them
+	# so we can loop through them.
 	set -f
 	set -- $window_list
 
@@ -178,7 +180,7 @@ get_busy_wspaces() {
 				set -- $window_list
 				# Break out of this loop and skip
 				# the rest of the parent loop's current
-				# iteration
+				# iteration.
 				continue 2
 			fi
 		done
