@@ -153,7 +153,8 @@ get_busy_wspaces() {
 	window_list=${window_list#*\# }
 
 	# Set the window list as positional
-	# argument as a ghetto POSIX array.
+	# arguments as a ghetto POSIX array
+	# so we can loop through them
 	set -f
 	set -- $window_list
 
