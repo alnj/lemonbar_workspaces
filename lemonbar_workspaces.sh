@@ -100,12 +100,16 @@ make_ws_list() {
 
 		# If the workspace is not active...
 		else
-			# ... and formatting for busy workspaces was
-			# specified, check if this workspace is busy.
+			# ... and formatting for busy workspaces was set...
 			if [ -n "$busy_left" ] || [ -n "$busy_right" ]; then
+
+				# ...check if the workspace is busy.
+
 				# Reset positional arguments to busy workspaces
 				# so that we can loop through them.
 				set -- $busy_wspaces
+
+				# Loop through the list of busy workspaces.
 				for busy_ws; do
 					# If workspace is found among the list of
 					# busy workspaces, then print it with
